@@ -1,0 +1,44 @@
+name: Android CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout project
+      uses: actions/checkout@v3
+
+    - name: Set up JDK
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'temurin'
+        java-version: 17
+
+    - name: Create local.properties
+      run: |
+        echo "TMDB_API_KEY=${{ secrets.TMDB_API_KEY }}" >> local.properties
+        echo "RABBITSTREAM_SOURCE_API=${{ secrets.RABBITSTREAM_SOURCE_API }}" >> local.properties
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
+
+    - name: Build Release APK
+      run: ./gradlew assembleRelease
+
+    - name: List APK outputs (debug)
+      run: ls -R app/build/outputs/apk/
+
+    - name: Upload APK as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: app-release-unsigned
+        path: app/build/outputs/apk/release/app-release.apk
