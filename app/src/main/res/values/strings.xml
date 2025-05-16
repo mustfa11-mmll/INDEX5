@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">INDEX</string>
+</resources>
 
     <string name="loading_error_title">An error occurred</string>
     <string name="loading_error_retry">Retry</string>
