@@ -1,11 +1,4 @@
-<androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/recyclerTrending"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginTop="8dp"
-    android:paddingStart="8dp"
-    android:paddingEnd="8dp"
-    android:scrollbars="horizontal"
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -13,41 +6,61 @@
     android:layout_height="match_parent"
     tools:context=".fragments.home.HomeMobileFragment">
 
+    <!-- RecyclerView للأفلام الرائجة (أفقي) -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerTrending"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:scrollbars="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/item_movie_card"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager_orientation="horizontal" />
+
+    <!-- RecyclerView الرئيسية (عمودي) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_home"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/recyclerTrending"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         tools:itemCount="1"
         tools:listitem="@layout/content_category_swiper_mobile" />
 
+    <!-- مؤشر التحميل -->
     <include
         android:id="@+id/is_loading"
         layout="@layout/layout_is_loading_mobile"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- شعار المزود -->
     <ImageView
         android:id="@+id/iv_provider_logo"
         android:layout_width="60dp"
         android:layout_height="0dp"
-        android:background="@drawable/bg_provider_logo_home_mobile"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
+        android:background="@drawable/bg_provider_logo_home_mobile"
         android:duplicateParentState="true"
         android:padding="8dp"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="ContentDescription" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
