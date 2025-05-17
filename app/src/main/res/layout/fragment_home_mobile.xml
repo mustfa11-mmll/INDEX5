@@ -15,14 +15,13 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:scrollbars="horizontal"
+        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layoutManager_orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:listitem="@layout/item_movie_card"
-        android:orientation="horizontal"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layoutManager_orientation="horizontal" />
+        tools:listitem="@layout/item_movie_card" />
 
     <!-- RecyclerView الرئيسية (عمودي) -->
     <androidx.recyclerview.widget.RecyclerView
