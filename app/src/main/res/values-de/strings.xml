@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Streamflix</string>
+    <string name="app_name">INDEX</string>
 
     <string name="loading_error_title">Ein Fehler ist aufgetreten</string>
     <string name="loading_error_retry">Erneut versuchen</string>
