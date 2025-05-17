@@ -5,8 +5,15 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.main.MainMobileActivity">
-
+   tools:context=".activities.main.MainMobileActivity">
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    app:title="تطبيقك"
+    app:navigationIcon="@drawable/ic_menu" <!-- أيقونة الهامبرغر -->
+/>
     <!-- محتوى الشاشة -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
