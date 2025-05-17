@@ -1,3 +1,12 @@
+<androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/recyclerTrending"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="8dp"
+    android:paddingStart="8dp"
+    android:paddingEnd="8dp"
+    android:scrollbars="horizontal"
+    tools:listitem="@layout/item_trending_movie"/>
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
