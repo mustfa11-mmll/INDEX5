@@ -15,7 +15,6 @@
         android:paddingStart="8dp"
         android:paddingEnd="8dp"
         android:scrollbars="horizontal"
-        android:orientation="horizontal"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layoutManager_orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
