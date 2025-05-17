@@ -7,6 +7,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
+import androidx.core.view.GravityCompat
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
@@ -63,7 +64,6 @@ class MainMobileActivity : FragmentActivity() {
             navController.navigate(R.id.home)
         }
 
-
         viewModel.checkUpdate()
 
         binding.bnvMain.setupWithNavController(navController)
@@ -114,6 +114,29 @@ class MainMobileActivity : FragmentActivity() {
                 }
             }
         }
+
+        // ========== دعم القائمة الجانبية (Drawer) وزر الهامبرغر ==========
+        val drawerLayout = binding.root.findViewById<androidx.drawerlayout.widget.DrawerLayout>(R.id.drawer_layout)
+        val navigationView = binding.root.findViewById<com.google.android.material.navigation.NavigationView>(R.id.navigation_view)
+
+        // فتح القائمة الجانبية عند الضغط على زر الهامبرغر في الـToolbar
+        binding.toolbar.setNavigationOnClickListener {
+            drawerLayout.openDrawer(GravityCompat.START)
+        }
+
+        // التعامل مع عناصر القائمة الجانبية (مثلاً زر الإعدادات)
+        navigationView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_settings -> {
+                    // استبدل السطر التالي لفتح صفحة الإعدادات الحقيقية إذا أردت
+                    Toast.makeText(this, "الإعدادات", Toast.LENGTH_SHORT).show()
+                    drawerLayout.closeDrawer(GravityCompat.START)
+                    true
+                }
+                else -> false
+            }
+        }
+        // ===============================================================
 
         onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
